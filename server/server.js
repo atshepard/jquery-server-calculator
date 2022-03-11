@@ -26,17 +26,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //GET & POSTs here: 
 
-// app.get('/url', function(req, res) {
-//     console.log('GET !');
-//     res.send(calculation);
-// });
+app.get('/calc', function(req, res) {
+    console.log('GET calculations!');
+    res.send(calculations);
+});
 
-// app.post('/url', (req, res) => {
-//     console.log('POST result', req.body);
-//     //200 OK
-//     //201 CREATED
-//     res.sendStatus(201);
-// });
+app.post('/calc', (req, res) => {
+    console.log('POST result', req.body);
+    //200 OK
+    //201 CREATED
+    res.sendStatus(201);
+});
 
 app.listen(PORT, function(){
 console.log('server running on PORT', PORT);
