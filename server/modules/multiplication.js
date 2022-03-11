@@ -1,5 +1,7 @@
 function multiplicator(numA, numB){
-    return numA * numB;
+    return Number(numA) * Number(numB);
 }
 
-module.exports = multiplicator();
+module.exports = {
+    mul: multiplicator
+}

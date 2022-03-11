@@ -1,5 +1,7 @@
 function divisionator(numA, numB){
-    return numA/numB;
+    return Number(numA) / Number(numB);
 }
 
-module.exports = divisionator();
+module.exports = {
+    div: divisionator
+};

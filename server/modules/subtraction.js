@@ -1,5 +1,7 @@
 function subtractor(numA, numB){
-   return numA - numB;
+   return Number(numA) - Number(numB);
 }
 
-module.exports = subtractor();
+module.exports = {
+   sub: subtractor
+};

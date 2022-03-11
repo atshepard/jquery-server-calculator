@@ -1,13 +1,20 @@
 //server requirements:
 const express = require('express');
 const bodyParser = require('body-parser');
+
 //server structure:
 const app = express();
 const PORT = 5000;
+
 //module imports:
+//can access functions by using .functionName(params)
+//accessible with addition.add(numA, numB)
 let addition = require('./modules/addition.js');
+//accessible with division.div(numA, numB)
 let division = require('./modules/division.js');
+//accessible with multiplication.mul(numA, numB)
 let multiplication = require('./modules/multiplication.js');
+//accessible with subtraction.sub(numA, numB)
 let subtraction = require('./modules/subtraction.js');
 
 let calculations = require('./modules/calculations.js');
