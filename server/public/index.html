@@ -7,38 +7,44 @@
     <title>Calculator!</title>
     <script src="vendors/jquery-3.6.0.js"></script>
     <script src="scripts/client.js"></script>
-    <link type="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <h1>Server Side Calculator</h1>
     <main>
         <div id="inputDiv">
             <input type="number" placeholder="Enter Value" class="input" id="inputCalc">
-            <button type="button" class="button" id="submitBtn">=</button>
-            <button type="button" class="button" id="clearBtn">C</button>
-            <p id="currentVal">??</p>
+            <button type="button" class="p-1 m-1 button" id="submitBtn">=</button>
+            <button type="button" class="p-1 m-1 button" id="clearBtn">C</button>
+            <p class="m-4" id="currentVal">??<span id="type"></span></p>
 
         </div>
-        <div>
-            <button type="button" class="button" id="addBtn">+</button>
-            <button type="button" class="button" id="subBtn">-</button>
-            <button type="button" class="button" id="mulBtn">*</button>
-            <button type="button" class="button" id="divBtn">/</button>
+        <div class="my-4">
+            <button type="button" class="p-4 m-1 button" id="addBtn">+</button>
+            <button type="button" class="p-4 m-1 button" id="subBtn">-</button>
+            <button type="button" class="p-4 m-1 button" id="mulBtn">*</button>
+            <button type="button" class="p-4 m-1 button" id="divBtn">/</button>
         </div>
         <div>
-            <button type="button" class="number" id="one">1</button>
-            <button type="button" class="number" id="two">2</button>
-            <button type="button" class="number" id="three">3</button>
+            <button type="button" class="p-4 m-1 number" id="one">1</button>
+            <button type="button" class="p-4 m-1 number" id="two">2</button>
+            <button type="button" class="p-4 m-1 number" id="three">3</button>
         </div>
         <div>
-            <button type="button" class="number" id="four">4</button>
-            <button type="button" class="number" id="five">5</button>
-            <button type="button" class="number" id="six">6</button> 
+            <button type="button" class="p-4 m-1 number" id="four">4</button>
+            <button type="button" class="p-4 m-1 number" id="five">5</button>
+            <button type="button" class="p-4 m-1 number" id="six">6</button> 
         </div>
-        <div id="resultDiv">
+        <div>
+            <button type="button" class="p-4 m-1 number" id="seven">7</button>
+            <button type="button" class="p-4 m-1 number" id="eight">8</button>
+            <button type="button" class="p-4 m-1 number" id="nine">9</button>  
+        </div>
+        <div class="my-4" id="resultDiv">
             <h3>Result: <span id="currentCalc"></span></h5>
         </div>
-        <div id="historyDiv">
+        <div class="my-4" id="historyDiv">
             <h4>Past Results:</h6>
             <ul id="historyList">
 
