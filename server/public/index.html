@@ -13,12 +13,27 @@
     <h1>Server Side Calculator</h1>
     <main>
         <div id="inputDiv">
-            <input type="number" placeholder="Enter Value" class="input" id="inputA">
-            <input type="number" placeholder="Enter Value" class="input" id="inputB">
+            <input type="number" placeholder="Enter Value" class="input" id="inputCalc">
+            <button type="button" class="button" id="submitBtn">=</button>
+            <button type="button" class="button" id="clearBtn">C</button>
+            <p id="currentVal">??</p>
+
+        </div>
+        <div>
             <button type="button" class="button" id="addBtn">+</button>
             <button type="button" class="button" id="subBtn">-</button>
             <button type="button" class="button" id="mulBtn">*</button>
             <button type="button" class="button" id="divBtn">/</button>
+        </div>
+        <div>
+            <button type="button" class="number" id="one">1</button>
+            <button type="button" class="number" id="two">2</button>
+            <button type="button" class="number" id="three">3</button>
+        </div>
+        <div>
+            <button type="button" class="number" id="four">4</button>
+            <button type="button" class="number" id="five">5</button>
+            <button type="button" class="number" id="six">6</button> 
         </div>
         <div id="resultDiv">
             <h3>Result: <span id="currentCalc"></span></h5>
