@@ -2,5 +2,25 @@
   "dependencies": {
     "body-parser": "^1.19.2",
     "express": "^4.17.3"
-  }
+  },
+  "name": "jquery-server-calculator",
+  "description": "[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atshepard/jquery-server-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atshepard/jquery-server-calculator/issues"
+  },
+  "homepage": "https://github.com/atshepard/jquery-server-calculator#readme"
 }

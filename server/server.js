@@ -38,8 +38,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 //     res.sendStatus(201);
 // });
 
-
-//
 app.listen(PORT, function(){
 console.log('server running on PORT', PORT);
 });
