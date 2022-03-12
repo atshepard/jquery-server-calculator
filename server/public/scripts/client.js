@@ -18,7 +18,7 @@ function getCalc() {
       }).then(function (response) {
         //console.log the 'results' array sent from the app.get server side
         console.log(response);
-        // render(response);
+        render(response);
       }).catch(function (error) {
         console.log(error);
         alert('error in GET');
@@ -42,7 +42,7 @@ function postCalc() {
   let calcToSend = output.split(" ");
 
   console.log('testing split: ', calcToSend);
-//hey ajax, go post:
+  //hey ajax, go post:
   $.ajax({
       url: '/calc',
       method: 'POST',
@@ -55,13 +55,16 @@ function postCalc() {
       }
     }).then(function (response) {
       console.log(response);
-      // $('.input').val('');
+      $('.input').val('');
     })
+
+    getCalc();
 }
 
 function renderCalc(response) {
-for (const calculation of response) {
-  
-}
-
+  for (const calculation of response) {
+    ('#historyList').append(`
+    <li> ${calculation.numA} ${calculation.operator} ${calculation.numB}</li>
+    `)
+  }
 }
