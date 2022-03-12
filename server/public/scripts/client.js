@@ -147,7 +147,7 @@ function serverDelete() {
 }
 //clears DOM 
 function clearDOM() {
-  $('#historyDiv').empty();
+  $('#historyList').empty();
   $('#currentCalc').empty();
 }
 //secret
