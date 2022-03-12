@@ -60,7 +60,7 @@ app.post('/calc', (req, res) => {
 app.get('/solve', function(req, res) {
     console.log('GET solution!');
     solveIt(calculations[calculations.length-1]);
-    res.send(calculations[calculations.length-1]);
+    res.send(calculations);
 });
 
 app.listen(PORT, function(){
