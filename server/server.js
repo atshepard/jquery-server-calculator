@@ -43,7 +43,6 @@ function solveIt(object) {
 return solution;
 }
 
-
 //GET & POSTs here: 
 //handshake for get to retrieve the current calculations array
 app.get('/calc', function(req, res) {
@@ -56,7 +55,7 @@ app.post('/calc', (req, res) => {
     calculations.push(req.body);
     //200 OK
     //201 CREATED
-    res.sendStatus(201);
+    res.sendStatus(200);
 });
 //handshake for get to retrieve calculations array with solution property:
 app.get('/solve', function(req, res) {
