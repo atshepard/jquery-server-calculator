@@ -8,6 +8,7 @@ function readyNow() {
     $('#submitBtn').on('click', getSolution);
     $('#clearBtn').on('click', clearInput);
     $('#historyList').on('click', '.list', handleListClick);
+    $('#deleteHistBtn').on('click', serverDelete);
     //initial get request goes here:
 getCalc();
 }
@@ -117,4 +118,15 @@ function handleListClick(){
 function clearInput(){
   input = "";
   $('#input').val('');
+}
+
+function serverDelete() {
+  $.ajax({
+    url: '/calc',
+    method: 'DELETE'
+  })
+  $.ajax({
+    url: '/solve',
+    method: 'DELETE'
+  })
 }
