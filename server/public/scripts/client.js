@@ -7,7 +7,7 @@ function readyNow() {
     $('#submitBtn').on('click', postCalc);
     $('#submitBtn').on('click', getSolution);
     //initial get request goes here:
-    // getCalc();
+    getCalc();
 }
 
 let input = "";
@@ -56,14 +56,17 @@ function postCalc() {
       }
     }).then(function (response) {
       console.log(response);
-      $('.input').val('');
     })
 
-    getCalc();
+$('#input').val('');
+input = ""
+
+getCalc();
 }
 
 //TODO: add calculation.solution when added
 function renderCalc(response) {
+  $('#historyList').empty();
   for (const calculation of response) {
     $('#historyList').append(`
     <li> ${calculation.numA} ${calculation.operator} ${calculation.numB}</li>
@@ -86,6 +89,7 @@ function getSolution() {
 }
 
 function renderSolve(solution) {
-  $('#historyList').children().first().append(`${solution.solution}`);
+  $('#currentCalc').empty();
+  // $('#historyList').closest("li").append(` = ${solution.solution}`);
   $('#currentCalc').append(`${solution.solution}`);
 }
