@@ -18,7 +18,7 @@ function getCalc() {
       }).then(function (response) {
         //console.log the 'results' array sent from the app.get server side
         console.log(response);
-        render(response);
+        renderCalc(response);
       }).catch(function (error) {
         console.log(error);
         alert('error in GET');
@@ -63,7 +63,7 @@ function postCalc() {
 
 function renderCalc(response) {
   for (const calculation of response) {
-    ('#historyList').append(`
+    $('#historyList').append(`
     <li> ${calculation.numA} ${calculation.operator} ${calculation.numB}</li>
     `)
   }

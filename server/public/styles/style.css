@@ -2,7 +2,4 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#currentVal {
-    display: inline;
-    border: 1px solid black;
-}
+/* all other styling done in bootstrap */
