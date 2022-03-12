@@ -63,6 +63,22 @@ app.get('/solve', function(req, res) {
     solveIt(calculations[calculations.length-1]);
     res.send(calculations);
 });
+//handshake for delete route:
+app.delete('/calc', (req, res) => {
+    console.log('Delete called at /calc route');
+
+    calculations.length= 0; 
+
+res.send('DELETED');
+});
+
+app.delete('/solve', (req, res) => {
+    console.log('Delete called at /solve route');
+
+    solution = undefined;
+
+res.send('DELETED');
+});
 
 //listen
 app.listen(PORT, function(){

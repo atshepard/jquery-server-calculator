@@ -4,6 +4,7 @@ function readyNow() {
     //click listeners go here:
     $('.number').on('click', inputNum);
     $('.operate').on('click', inputOp);
+    $('.secret').on('click', secret);
     $('#submitBtn').on('click', postCalc);
     $('#submitBtn').on('click', getSolution);
     $('#clearBtn').on('click', clearInput);
@@ -83,7 +84,7 @@ function getSolution() {
     method: 'GET'
   }).then(function (response) {
     //console.log the 'results' array sent from the app.get server side
-    console.log(response);
+    // console.log(response);
     renderCalc(response);
     renderSolve(response);
   }).catch(function (error) {
@@ -119,14 +120,38 @@ function clearInput(){
   input = "";
   $('#input').val('');
 }
-
+//sends ajax on delete mission
 function serverDelete() {
   $.ajax({
     url: '/calc',
-    method: 'DELETE'
-  })
+    method: 'DELETE',
+  }).then(function(response){
+    console.log(response);
+  }).catch(function (error) {
+    console.log(error);
+    alert('error in DELETE');
+  });
+
   $.ajax({
     url: '/solve',
     method: 'DELETE'
-  })
+  }).then(function(response){
+    console.log(response);
+  }).catch(function (error) {
+    console.log(error);
+    alert('error in DELETE');
+  });
+
+  clearDOM(); //dom would also clear on browser refresh but insurance
+  getCalc();
+}
+//clears DOM 
+function clearDOM() {
+  $('#historyDiv').empty();
+  $('#currentCalc').empty();
+}
+//secret
+function secret(){
+  console.log('keep it secret');
+  console.log('keep it safe');
 }

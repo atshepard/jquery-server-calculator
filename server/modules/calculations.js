@@ -1,4 +1,3 @@
-let calculations = [
-];
+let calculations = [];
 
 module.exports = calculations;
