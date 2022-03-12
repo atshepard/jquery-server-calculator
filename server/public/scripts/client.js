@@ -11,42 +11,44 @@ function readyNow() {
     //initial get request goes here:
 getCalc();
 }
-
+//declaration of input to hold string for splitting:
 let input = "";
 
+//inputs number to input field based on button clicked:
+function inputNum(){
+  console.log('inputting number: ', $(this).data("val"));
+  input = input + $(this).data("val");
+  $('#input').val(input);
+}
+//inputs operator to input field based on button clicked:
+function inputOp(){
+  console.log('inputting operator: ', $(this).data("op"));
+  input = `${input} ${$(this).data("op")} ` ;
+  $('#input').val(input); 
+}
+//handshake for get to retrieve calculations array
 function getCalc() {
+  //hey ajax go get the calculations array
     $.ajax({
         url: '/calc',
         method: 'GET'
       }).then(function (response) {
         //console.log the 'results' array sent from the app.get server side
         console.log(response);
-        
+        //when you have it, if it is greater than zero
+        //go get the solutions and display them also
         if(response.length > 0){
           getSolution();
         }
-        // renderCalc(response);
       }).catch(function (error) {
         console.log(error);
         alert('error in GET');
       })
 }
-
-function inputNum(){
-  console.log('inputting number: ', $(this).data("val"));
-  input = input + $(this).data("val");
-  $('#input').val(input);
-}
-
-function inputOp(){
-  console.log('inputting operator: ', $(this).data("op"));
-  input = `${input} ${$(this).data("op")} ` ;
-  $('#input').val(input); 
-}
-
+//handshake for posting to calculations array
 function postCalc() {
-  let output = input;
-  let calcToSend = output.split(" ");
+  // let output = input;
+  let calcToSend = input.split(" ");
 
   console.log('testing split: ', calcToSend);
 
@@ -73,8 +75,7 @@ input = ""
 
 getCalc();
 }
-
-//TODO: add calculation.solution when added
+//handshake for retrieving calculations array with solutions
 function getSolution() {
   $.ajax({
     url: '/solve',
@@ -89,7 +90,7 @@ function getSolution() {
     alert('error in GET');
   })
 }
-
+//renders the calculations to the DOM as a list
 function renderCalc(response) {
   $('#historyList').empty();
   for (const calculation of response) {
@@ -99,20 +100,20 @@ function renderCalc(response) {
     `)
   }
 }
-
+//renders current solution to the DOM
 function renderSolve(array) {
   $('#currentCalc').empty();
   let solve = array[array.length-1].solution;
   // $('#historyList').closest("li").append(` = ${solution.solution}`);
   $('#currentCalc').append(`${solve}`);
 }
-
+//adds the equation for list items clicked on to the input field
 function handleListClick(){
   input = String($(this).data("eq"));
   $('#input').val(input);
 //  
 }
-
+//clears user input
 function clearInput(){
   input = "";
   $('#input').val('');
