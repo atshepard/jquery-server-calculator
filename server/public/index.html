@@ -14,7 +14,7 @@
     <h1>Server Side Calculator</h1>
     <main>
         <div id="inputDiv">
-            <input type="number" placeholder="Enter Value" class="input" id="input">
+            <input type="text" placeholder="Enter Value" class="input" id="input">
             <button type="button" class="p-1 m-1 button" id="submitBtn">=</button>
             <button type="button" class="p-1 m-1 button" id="clearBtn">C</button>
             <!-- <input type="number" placeholder="Enter Value" class="input" id="inputB"> -->
@@ -22,10 +22,10 @@
 
         </div>
         <div class="my-4">
-            <button type="button" class="p-4 m-1 button" id="addBtn">+</button>
-            <button type="button" class="p-4 m-1 button" id="subBtn">-</button>
-            <button type="button" class="p-4 m-1 button" id="mulBtn">*</button>
-            <button type="button" class="p-4 m-1 button" id="divBtn">/</button>
+            <button type="button" class="p-4 m-1 button operate" data-op="+" id="addBtn">+</button>
+            <button type="button" class="p-4 m-1 button operate" data-op="-" id="subBtn">-</button>
+            <button type="button" class="p-4 m-1 button operate" data-op="*" id="mulBtn">*</button>
+            <button type="button" class="p-4 m-1 button operate" data-op="/" id="divBtn">/</button>
         </div>
         <div>
             <button type="button" class="p-4 m-1 number" data-val="1"id="one">1</button>

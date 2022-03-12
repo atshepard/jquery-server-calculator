@@ -3,12 +3,13 @@ $(readyNow);
 function readyNow() {
     //click listeners go here:
     $('.number').on('click', inputNum);
-
+    $('.operate').on('click', inputOp);
+    $('#submitBtn').on('click', postCalc);
     //initial get request goes here:
     // getCalc();
 }
 
-let numA = "";
+let input = "";
 
 function getCalc() {
     $.ajax({
@@ -26,32 +27,41 @@ function getCalc() {
 
 function inputNum(){
   console.log('inputting number: ', $(this).data("val"));
-  numA = numA + $(this).data("val");
-  $('#input').val(Number(numA));
+  input = input + $(this).data("val");
+  $('#input').val(input);
 }
 
-// function postCalc() {
-//     $.ajax({
-//         url: '/calc',
-//         method: 'POST',
-//         // data should ALWAYS be a object
-//         //this data turns in to the 'req.body' on the server side post
-//         data: {
-//           numA: numA,
-//           operator: operator,
-//           numB: numB,
-//           result: 0
-//         },
-  
-//       }).then(function (response) {
-//         console.log(response);
-//         // $('.input').val('');
-//       })
-// }
+function inputOp(){
+  console.log('inputting operator: ', $(this).data("op"));
+  input = `${input} ${$(this).data("op")} ` ;
+  $('#input').val(input); 
+}
 
-// function renderCalc(response) {
-// for (const calculation of response) {
-  
-// }
+function postCalc() {
+  let output = $('#input').val();
+  let calcToSend = output.split(" ");
 
-// }
+  console.log('testing split: ', calcToSend);
+//hey ajax, go post:
+  $.ajax({
+      url: '/calc',
+      method: 'POST',
+      // data should ALWAYS be a object
+      //this data turns in to the 'req.body' on the server side post
+      data: {
+        numA: calcToSend[0],
+        operator: calcToSend[1],
+        numB: calcToSend[2],
+      }
+    }).then(function (response) {
+      console.log(response);
+      // $('.input').val('');
+    })
+}
+
+function renderCalc(response) {
+for (const calculation of response) {
+  
+}
+
+}

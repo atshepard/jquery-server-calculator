@@ -19,6 +19,8 @@ let subtraction = require('./modules/subtraction.js');
 
 let calculations = require('./modules/calculations.js');
 
+let solution;
+
 //serve static files:
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -31,13 +33,13 @@ app.get('/calc', function(req, res) {
     res.send(calculations);
 });
 
-// app.post('/calc', (req, res) => {
-//     console.log('POST result', req.body);
-//     calculations.push(req.body);
-//     //200 OK
-//     //201 CREATED
-//     res.sendStatus(201);
-// });
+app.post('/calc', (req, res) => {
+    console.log('POST result', req.body);
+    calculations.push(req.body);
+    //200 OK
+    //201 CREATED
+    res.sendStatus(201);
+});
 
 app.listen(PORT, function(){
 console.log('server running on PORT', PORT);
