@@ -5,6 +5,7 @@ function readyNow() {
     $('.number').on('click', inputNum);
     $('.operate').on('click', inputOp);
     $('#submitBtn').on('click', postCalc);
+    $('#submitBtn').on('click', getSolution);
     //initial get request goes here:
     // getCalc();
 }
@@ -61,10 +62,30 @@ function postCalc() {
     getCalc();
 }
 
+//TODO: add calculation.solution when added
 function renderCalc(response) {
   for (const calculation of response) {
     $('#historyList').append(`
     <li> ${calculation.numA} ${calculation.operator} ${calculation.numB}</li>
     `)
   }
+}
+
+function getSolution() {
+  $.ajax({
+    url: '/solve',
+    method: 'GET'
+  }).then(function (response) {
+    //console.log the 'results' array sent from the app.get server side
+    console.log(response);
+    renderSolve(response);
+  }).catch(function (error) {
+    console.log(error);
+    alert('error in GET');
+  })
+}
+
+function renderSolve(solution) {
+  $('#historyList').children().first().append(`${solution.solution}`);
+  $('#currentCalc').append(`${solution.solution}`);
 }

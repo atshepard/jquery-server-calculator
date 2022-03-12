@@ -25,9 +25,25 @@ let solution;
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
+function solveIt(object) {
+    if(object.operator == '+'){
+        solution = addition.add(object.numA, object.numB);
+        object.solution = solution;
+    } else if(object.operator == '-'){
+        solution = subtraction.sub(object.numA, object.numB);
+        object.solution = solution;
+    } else if(object.operator == '/'){
+        solution = division.div(object.numA, object.numB);
+        object.solution = solution;
+    } else if(object.operator == '*'){
+        solution = multiplication.mul(object.numA, object.numB);
+        object.solution = solution;
+    }
+return solution;
+}
+
 
 //GET & POSTs here: 
-
 app.get('/calc', function(req, res) {
     console.log('GET calculations!');
     res.send(calculations);
@@ -39,6 +55,12 @@ app.post('/calc', (req, res) => {
     //200 OK
     //201 CREATED
     res.sendStatus(201);
+});
+
+app.get('/solve', function(req, res) {
+    console.log('GET solution!');
+    solveIt(calculations[calculations.length-1]);
+    res.send(calculations[calculations.length-1]);
 });
 
 app.listen(PORT, function(){
