@@ -22,30 +22,32 @@ let solution;
 
 //serve static files:
 app.use(express.static('server/public'));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 //takes an object and applies a math function (stored in modules)
 //based on the operator inside the object:
 function solveIt(object) {
-    if(object.operator == '+'){
+    if (object.operator == '+') {
         solution = addition.add(object.numA, object.numB);
         object.solution = solution;
-    } else if(object.operator == '-'){
+    } else if (object.operator == '-') {
         solution = subtraction.sub(object.numA, object.numB);
         object.solution = solution;
-    } else if(object.operator == '/'){
+    } else if (object.operator == '/') {
         solution = division.div(object.numA, object.numB);
         object.solution = solution;
-    } else if(object.operator == '*'){
+    } else if (object.operator == '*') {
         solution = multiplication.mul(object.numA, object.numB);
         object.solution = solution;
     }
-return solution;
+    return solution;
 }
 
 //GET & POSTs here: 
 //handshake for get to retrieve the current calculations array
-app.get('/calc', function(req, res) {
+app.get('/calc', function (req, res) {
     console.log('GET calculations!');
     res.send(calculations);
 });
@@ -58,18 +60,18 @@ app.post('/calc', (req, res) => {
     res.sendStatus(200);
 });
 //handshake for get to retrieve calculations array with solution property:
-app.get('/solve', function(req, res) {
+app.get('/solve', function (req, res) {
     console.log('GET solution!');
-    solveIt(calculations[calculations.length-1]);
+    solveIt(calculations[calculations.length - 1]);
     res.send(calculations);
 });
 //handshake for delete route:
 app.delete('/calc', (req, res) => {
     console.log('Delete called at /calc route');
 
-    calculations.length= 0; 
+    calculations.length = 0;
 
-res.send('DELETED');
+    res.send('DELETED');
 });
 
 app.delete('/solve', (req, res) => {
@@ -77,10 +79,10 @@ app.delete('/solve', (req, res) => {
 
     solution = undefined;
 
-res.send('DELETED');
+    res.send('DELETED');
 });
 
 //listen
-app.listen(PORT, function(){
-console.log('server running on PORT', PORT);
+app.listen(PORT, function () {
+    console.log('server running on PORT', PORT);
 });

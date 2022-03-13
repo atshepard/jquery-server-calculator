@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <h1>Server Side Calculator</h1>
     <main>
@@ -28,34 +30,36 @@
             <button type="button" class="p-4 m-1 button operate" data-op="/" id="divBtn">/</button>
         </div>
         <div>
-            <button type="button" class="p-4 m-1 number" data-val="1"id="one">1</button>
-            <button type="button" class="p-4 m-1 number" data-val="2"id="two">2</button>
-            <button type="button" class="p-4 m-1 number" data-val="3"id="three">3</button>
+            <button type="button" class="p-4 m-1 number" data-val="1" id="one">1</button>
+            <button type="button" class="p-4 m-1 number" data-val="2" id="two">2</button>
+            <button type="button" class="p-4 m-1 number" data-val="3" id="three">3</button>
         </div>
         <div>
             <button type="button" class="p-4 m-1 number" data-val="4" id="four">4</button>
             <button type="button" class="p-4 m-1 number" data-val="5" id="five">5</button>
-            <button type="button" class="p-4 m-1 number" data-val="6" id="six">6</button> 
+            <button type="button" class="p-4 m-1 number" data-val="6" id="six">6</button>
         </div>
         <div>
             <button type="button" class="p-4 m-1 number" data-val="7" id="seven">7</button>
             <button type="button" class="p-4 m-1 number" data-val="8" id="eight">8</button>
-            <button type="button" class="p-4 m-1 number" data-val="9" id="nine">9</button>  
+            <button type="button" class="p-4 m-1 number" data-val="9" id="nine">9</button>
         </div>
         <div>
             <button type="button" class="secret p-4 m-1 btn btn-outline-light">0</button>
             <button type="button" class="p-4 m-1 number" data-val="0" id="zero">0</button>
-            <button type="button" class="secret p-4 m-1 btn btn-outline-light">0</button>  
+            <button type="button" class="secret p-4 m-1 btn btn-outline-light">0</button>
         </div>
         <div class="my-4" id="resultDiv">
             <h3>Result: <span id="currentCalc"></span></h5>
         </div>
         <div class="my-4" id="historyDiv">
-            <h4>Past Results:<span><button type="button" class="p-1 m-1" id="deleteHistBtn">Delete History</button></span></h6>
-            <ul id="historyList">
+            <h4>Past Results:<span><button type="button" class="p-1 m-1" id="deleteHistBtn">Delete
+                        History</button></span></h6>
+                <ul id="historyList">
 
-            </ul>
+                </ul>
         </div>
     </main>
 </body>
+
 </html>
