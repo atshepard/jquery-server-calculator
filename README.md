@@ -24,7 +24,7 @@ POST VALIDATION:
 - The only part of this calculator that I am not satisfied with is the condition I wrote to validate whether the post is correct or not. After playing with it for a while, I wasn't inspired by anything better than checking the length of the array. This is something I would like to come back to later.
 
 STYLES:
--Styling the interface to resemble a typical calculator required the use of secret buttons with my limited bootstrap experience. 
+- Styling the interface to resemble a typical calculator required the use of secret buttons with my limited bootstrap experience. 
 
 DELETE: 
 - I am not sure I implemented the 'delete' method correctly - but I was able to get it to do what I wanted. I had a difficult time finding resources for handling the delete method between Ajax and Express.
